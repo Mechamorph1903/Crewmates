@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { supabase } from '../client';
+import { Link } from 'react-router-dom';
 
 const Details = () => {
     const { id } = useParams();
@@ -68,6 +69,7 @@ const Details = () => {
             <p>Colour: {crewmate.colour}</p>
             <p>Speed: {crewmate.speed} ({speedStatus})</p>
             <p>{colorDetails[crewmate.colour]}</p>
+            <Link to={`/edit/${crewmate.id}`}><button>Wanna Edit this crewmate?</button></Link>
         </div>
        </div>
     );
